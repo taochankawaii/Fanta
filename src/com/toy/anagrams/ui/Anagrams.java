@@ -273,7 +273,7 @@ public class Anagrams extends JFrame {
             feedbackLabel.setText("ジャスティス！！！！！！！\n次の問題へ");
             getRootPane().setDefaultButton(nextTrial);
         } else {
-            feedbackLabel.setText("・・・は？出直してこい");
+            feedbackLabel.setText("もういっかいがんばってね");
             guessedWord.setText("");
         }
 
