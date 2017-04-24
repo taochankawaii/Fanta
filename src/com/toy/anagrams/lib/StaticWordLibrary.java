@@ -32,6 +32,8 @@
 package com.toy.anagrams.lib;
 import java.util.*;
 
+import com.toy.anagrams.ui.Anagrams;
+
 /**
  * Implementation of the logic for the Anagram Game application.
  */
@@ -163,6 +165,7 @@ final class StaticWordLibrary extends WordLibrary {
     	return shuffleWord(getWord(idx));
     }
     
+    
     private String shuffleWord(String s) {
     	Random random = new Random();
     	int len = s.length();
@@ -172,21 +175,26 @@ final class StaticWordLibrary extends WordLibrary {
         	st[i] = s.charAt(i);
     	}
     	
-    	for(int i = 0; i < random.nextInt(); i++) {
-	    	int chen1 = random.nextInt(len);
-	    	int chen2 = random.nextInt(len);
-	
-	    	char tmp;
-	    	tmp = st[chen1];
-	    	st[chen1] = st[chen2];
-	    	st[chen2] = tmp;
-    	}
-    	
+    	int sl = Anagrams.sl();
+    	//System.out.println("レベルは"+sl);
+
+	    	for(int i = 0; i < sl; i++) { 
+	    		//System.out.println("シャッフル "+(i+1));
+		    	int chen1 = random.nextInt(len);
+		    	int chen2 = random.nextInt(len);
+		
+		    	char tmp;
+		    	tmp = st[chen1];
+		    	st[chen1] = st[chen2];
+		    	st[chen2] = tmp;
+	    	}
+	    	
     	s = String.valueOf(st);
     	
     	return s; 
     }
-
+    
+ 
     /**
      * Gets the number of words in the library.
      * @return the total number of plain/scrambled word pairs in the library
