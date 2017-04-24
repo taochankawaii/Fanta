@@ -43,6 +43,11 @@ import javax.swing.SwingUtilities;
  */
 public class Anagrams extends JFrame {
 
+	static public int sl, idx;
+	public static int sl(){
+		return sl;
+	}
+	
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -218,6 +223,19 @@ public class Anagrams extends JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         mainPanel.add(selectLevel, gridBagConstraints);
+        
+        idx = selectLevel.getSelectedIndex();
+        if(idx == 0){
+        	//System.out.println("sl=" + sl);
+        	sl = 1;
+        } else if(idx == 1){
+        	//System.out.println("sl=" + sl);
+        	sl = 2;
+        } else if(idx == 2){
+        	//                                                                                                                                                                                                                                                                                                                                                                         System.out.println("sl=" + sl);
+        	sl = 3;
+        }
+       
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
@@ -257,6 +275,19 @@ public class Anagrams extends JFrame {
         wordIdx = (wordIdx + 1) % wordLibrary.getSize();
 
         feedbackLabel.setText(" ");
+        
+        idx = selectLevel.getSelectedIndex();
+        if(idx == 0){
+        	//System.out.println("sl=" + sl);
+        	sl = 1;
+        } else if(idx == 1){
+        	//System.out.println("sl=" + sl);
+        	sl = 2;
+        } else if(idx == 2){
+        	//System.out.println("sl=" + sl);
+        	sl = 3;
+        }
+        
         scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
         guessedWord.setText("");
         getRootPane().setDefaultButton(guessButton);
